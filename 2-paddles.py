@@ -11,7 +11,7 @@ screen.title("Pong")
 screen.tracer(0)
 
 # Creating paddles
-right_paddle = Paddle((350,0), "red")
+right_paddle = Paddle((350, 0), "red")
 left_paddle = Paddle((-350, 0), "blue")
 
 # Creating ball
@@ -33,7 +33,7 @@ while game_is_on:
     screen.update()
     ball.move()
 
-    # Detecting collisions
+    # Detecting collisions with a buffer to account for the length of the paddles
     if ball.ycor() in [-280, 280]:
         ball.y_factor *= -1
     if ball.distance(right_paddle) < 50 and ball.xcor() > 320 or ball.distance(left_paddle) < 50 and ball.xcor() < -320:
